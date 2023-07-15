@@ -7,6 +7,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+
+
 // An object that represents the three stacks of Towers of Hanoi; 
   // * each key is an array of Numbers: 
     // * A is the far-left, 
@@ -22,6 +24,8 @@ let stacks = {
   c: []
 };
 
+
+
 // Start here. What is this function doing?
 const printStacks = () => {
   console.log("a: " + stacks.a);
@@ -30,10 +34,11 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
-  // Your code here
-
+const movePiece = (rowToMoveTo, stone) => {
+  stacks.rowToMoveTo.push(stacks[stone].pop())
 }
+
+movePiece(b, stone.id)
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = () => {
@@ -66,6 +71,10 @@ const getPrompt = () => {
 // Tests
 
 if (typeof describe === 'function') {
+
+  // should start with all blocks in 1 row 
+  // should make sure smallest is first one moved at start of game 
+  // reset button should work 
 
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {

@@ -7,7 +7,13 @@
 // * Why are you get a warning in your console? Fix it.
 // * Delete these comment lines!
 
-const stone = null
+let stone = null
+
+let stacks = {
+  a: [4, 3, 2, 1],
+  b: [],
+  c: []
+};
 
 // this function is called when a row is clicked. 
 // Open your inspector tool to see what is being captured and can be used.
@@ -21,12 +27,20 @@ const selectRow = (row) => {
   pickUpStone(row.id)
 } 
 
+const movePiece = (rowToMoveTo, stone) => {
+  stacks.rowToMoveTo.push(stacks[stone].pop())
+}
+
+
+
+
 // this function can be called to get the last stone in the stack
 // but there might be something wrong with it...
 const pickUpStone = (rowID) => {
   const selectedRow = document.getElementById(rowID);
-  stone = selectedRow.removeChild(selectedRow.lastChild);
+  let stone = selectedRow.removeChild(selectedRow.lastChild);
   console.log(stone)
+  movePiece(rowID, stone.id)
 }
 
 // You could use this function to drop the stone but you'll need to toggle between pickUpStone & dropStone
@@ -34,6 +48,7 @@ const pickUpStone = (rowID) => {
 // Something like: if(!stone){pickupStone} else{dropStone}
 
 const dropStone = (rowID, stone) => {
+
   document.getElementById(rowID).appendChild(stone)
   stone = null
 }
