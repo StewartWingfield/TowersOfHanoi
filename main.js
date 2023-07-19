@@ -48,26 +48,19 @@ const movePiece = (startStack, endStack) => {
 const isLegal = (startStack, endStack) => {
   if (stacks[endStack].length === 0) {
     return true 
-  }
-  if (stacks[startStack].slice(-1) < stacks[endStack].slice(-1)) {
+  } else if (stacks[startStack].slice(-1) < stacks[endStack].slice(-1)) {
     return true
   } else {
     return false
   }
-  
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 // Entire starting stack is moved to a different row, all 4 discs on different row, 
 // if entire starting stack moved to either b or c 
 const checkForWin = () => {
-  if (stacks['b'].length === 4 || stacks['c'].length === 4) {
-    return true 
-  } else {
-    return false 
+  return (stacks['b'].length === 4 || stacks['c'].length === 4) 
   }
-  
-}
 
 // When is this function called? What should it do with its argument?
 // If move is legal then movePiece, if move is not legal then game tells user its not legal
