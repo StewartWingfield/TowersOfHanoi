@@ -95,14 +95,30 @@ if (typeof describe === 'function') {
 
   // should start with all blocks in 1 row 
   // should make sure smallest is first one moved at start of game 
-  // reset button should work 
+  // does game start 
 
+  describe('#printStacks()', () => {
+    it('should print out all stacks starting on a', () => {
+      assert.deepEqual(stacks, { a: [4, 3, 2, 1], b: [], c: [] })
+    })
+  })
+  
   describe('#towersOfHanoi()', () => {
     it('should be able to move a block', () => {
       towersOfHanoi('a', 'b');
       assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
     });
   });
+
+  describe('#printStacks()', () => {
+    it('should print out all stacks', () => {
+      console.log("a: " + stacks.a);
+      console.log("b: " + stacks.b);
+      console.log("c: " + stacks.c);
+    })
+  })
+
+
 
   describe('#isLegal()', () => {
     it('should not allow an illegal move', () => {
