@@ -94,11 +94,17 @@ const getPrompt = () => {
 if (typeof describe === 'function') {
 
   // should start with all blocks in 1 row 
-  // should make sure smallest is first one moved at start of game 
   // does game start 
+
+
 
   describe('#printStacks()', () => {
     it('should print out all stacks starting on a', () => {
+      let stacks = {
+        a: [4, 3, 2, 1],
+        b: [],
+        c: []
+      }
       assert.deepEqual(stacks, { a: [4, 3, 2, 1], b: [], c: [] })
     })
   })
@@ -109,6 +115,8 @@ if (typeof describe === 'function') {
       assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
     });
   });
+
+
 
   describe('#printStacks()', () => {
     it('should print out all stacks', () => {
@@ -144,6 +152,15 @@ if (typeof describe === 'function') {
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
+    });
+  });
+
+  describe('#towersOfHanoi()', () => {
+    it('should be able to occupy all stacks at once', () => {
+     
+      stacks = { a: [1], b: [4, 3, 2], c: [] };
+      towersOfHanoi('b', 'c')
+      assert.deepEqual(stacks, { a: [1], b: [4, 3], c: [2] });
     });
   });
 
